@@ -31,6 +31,22 @@
 
             </xpath>
 
+            <!-- Approval Information -->
+            <xpath expr="//notebook" position="inside">
+
+                <page name="approval_information" string="Approval Information">
+
+                    <group string="Approval Information">
+                        <field name="approval_state" readonly="1"/>
+                        <field name="confirmed_user" readonly="1"/>
+                        <field name="confirm_date" readonly="1"/>
+                    </group>
+
+                </page>
+
+            </xpath>
+
+
 
 
 
