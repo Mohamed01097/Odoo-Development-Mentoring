@@ -1,0 +1,21 @@
+<odoo>
+    <record id="purchase_order_form_mentorship_approval" model="ir.ui.view">
+        <field name="name">purchase.order.form.mentorship.approval</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_request_approval" type="object" string="Request Approval" invisible="state not in ('draft', 'sent') or amount_total &lt;= 15000 or approval_state in ('waiting', 'approved')"/>
+                <button name="action_approve_mentorship" type="object" string="Approve" class="btn-primary" groups="purchase.group_purchase_manager" invisible="state not in ('draft', 'sent') or approval_state != 'waiting'"/>
+                <button name="action_reject_mentorship" type="object" string="Reject" groups="purchase.group_purchase_manager" invisible="state not in ('draft', 'sent') or approval_state != 'waiting'"/>
+                <field name="approval_state" widget="statusbar" statusbar_visible="not_requested,waiting,approved,rejected"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="Mentorship Approval" name="mentorship_purchase_approval">
+                    <field name="approved_by_id" readonly="1"/>
+                    <field name="approved_date" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
