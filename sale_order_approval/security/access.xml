@@ -1,0 +1,15 @@
+<odoo>
+
+  <record id="module_manager_group" model="res.groups.privilege">
+<field name="name">sales sale order approval</field>
+  <field name="sequence">30</field>
+
+  </record>
+
+
+
+  <record id="sales_manager_group" model="res.groups">
+<field name="name">sales Manager</field>
+<field name="privilege_id" ref="module_manager_group"/>
+</record>
+</odoo>
