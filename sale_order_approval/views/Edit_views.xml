@@ -5,45 +5,41 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
-               <field name="approval_state"/>
-                          </xpath>
+                <field name="approval_state"/>
+            </xpath>
 
-             <xpath expr="//header" position="inside">
-              <button name="requested_approval_button"
-              type="object"
-              string="requested approved"
-              class="btn-primary"/>
-                          </xpath>
-             <xpath expr="//header" position="inside">
-              <button
-                      name="requested_approval_button"
-              type="object"
-              string="Approve"
-              class="btn-primary"
-              groups="sale_order_approval.sales_manager_group"/>
-                  <button
-                          name="requested_approval_button"
-              type="object"
-              string="Reject"
-              class="btn-primary"
-                  groups="sale_order_approval.sales_manager_group"/>
-                          </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="requested_approval_button"
+                        type="object"
+                        string="requested approved"
+                        class="btn-primary"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button
+                        name="approved_button"
+                        type="object"
+                        string="Approve"
+                        class="btn-primary"
+                        groups="sale_order_approval.sales_manager_group"/>
+                <button
+                        name="rejected_button"
+                        type="object"
+                        string="Reject"
+                        class="btn-primary"
+                        groups="sale_order_approval.sales_manager_group"/>
+            </xpath>
+
+            <xpath expr="//field[@name='source_id']" position="after">
+                <field name="approved_by_id" />
+                <field name="approved_date"/>
 
 
 
-
-
-
+            </xpath>
         </field>
-
-
 
 
     </record>
 
 
-
-
-
-    
 </odoo>

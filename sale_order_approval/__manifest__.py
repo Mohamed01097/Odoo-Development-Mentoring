@@ -21,11 +21,11 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-
+        'security/access.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/Edit_views.xml',
-        'security/access.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
