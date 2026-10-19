@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
                 <button name="action_request_approval" type="object" string="Request Approval" class="btn-secondary" invisible="state not in ('draft', 'sent') or amount_total &lt;= 10000 or approval_state in ('waiting', 'approved')"/>
-                <button name="action_approve_mentorship" type="object" string="Approve" class="btn-primary" groups="sales_team.group_sale_manager" invisible="state not in ('draft', 'sent') or approval_state != 'waiting'"/>
-                <button name="action_reject_mentorship" type="object" string="Reject" groups="sales_team.group_sale_manager" invisible="state not in ('draft', 'sent') or approval_state != 'waiting'"/>
+                <button name="action_approve_mentorship" type="object" string="Approve" class="btn-primary" groups="mentorship_approval19.group_mentorship_approval" invisible="state not in ('draft', 'sent') or approval_state != 'waiting'"/>
+                <button name="action_reject_mentorship" type="object" string="Reject" groups="mentorship_approval19.group_mentorship_approval" invisible="state not in ('draft', 'sent') or approval_state != 'waiting'"/>
                 <field name="approval_state" widget="statusbar" statusbar_visible="not_requested,waiting,approved,rejected"/>
             </xpath>
             <xpath expr="//sheet" position="inside">

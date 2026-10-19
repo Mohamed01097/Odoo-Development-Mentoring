@@ -17,10 +17,7 @@ class SaleOrder(models.Model):
 
     def _notify_approvers(self):
         for record in self:
-            if record._name == 'sale.order':
-                group = self.env.ref('sales_team.group_sale_manager')
-            else:
-                group = self.env.ref('purchase.group_purchase_manager')
+            group = self.env.ref('mentorship_approval19.group_mentorship_approval')
             for user in group.user_ids:
                 record.activity_schedule(
                     'mail.mail_activity_data_todo',
@@ -38,7 +35,7 @@ class SaleOrder(models.Model):
         return super().write(vals)
 
     def _approval_check_manager(self):
-        if not self.env.user.has_group('sales_team.group_sale_manager'):
+        if not self.env.user.has_group('mentorship_approval19.group_mentorship_approval'):
             raise AccessError(_('Only Sales Managers may approve or reject quotations.'))
 
     def action_request_approval(self):
@@ -75,4 +72,3 @@ class SaleOrder(models.Model):
             if order.amount_total > 10000 and order.approval_state != 'approved':
                 raise UserError(_('This quotation requires Sales Manager approval before confirmation.'))
         return super().action_confirm()
-
