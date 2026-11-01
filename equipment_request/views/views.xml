@@ -1,0 +1,107 @@
+<odoo>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="equipment_request.list">
+      <field name="name">equipment_request list</field>
+      <field name="model">equipment.request</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="title"/>
+          <field name="equipment"/>
+          <field name="quantity"/>
+          <field name="justification"/>
+          <field name="priority"/>
+          <field name="owner_id"/>
+          <field name="company_id"/>
+          <field name="manager_note"/>
+
+        </list>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="equipment_request.form">
+      <field name="name">equipment_request form</field>
+      <field name="model">equipment.request</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+          <field name="title"/>
+          <field name="equipment"/>
+          <field name="quantity"/>
+          <field name="justification"/>
+          <field name="priority"/>
+          <field name="owner_id"/>
+          <field name="company_id"/>
+          <field name="manager_note"/>
+            </group>
+           </sheet>
+
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="equipment_request.search">
+    <field name="name">equipment.request.search</field>
+    <field name="model">equipment.request</field>
+    <field name="arch" type="xml">
+        <search>
+
+            <!-- Search Fields -->
+            <field name="title"/>
+            <field name="equipment"/>
+
+            <!-- Filters -->
+            <filter name="my_requests"
+                    string="My Requests"
+                    domain="[('owner_id', '=', uid)]"/>
+
+            <filter name="high_priority"
+                    string="High Priority"
+                    domain="[('priority', '=', 'high')]"/>
+
+            <separator/>
+
+            <!-- Group By -->
+            <filter name="group_by_owner"
+                    string="Owner"
+                    context="{'group_by': 'owner_id'}"/>
+
+            <filter name="group_by_company"
+                    string="Company"
+                    context="{'group_by': 'company_id'}"/>
+
+        </search>
+    </field>
+</record>
+
+    <record model="ir.actions.act_window" id="equipment_request.action_window">
+      <field name="name">equipment_request window</field>
+      <field name="res_model">equipment.request</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+
+
+
+
+
+
+
+    <menuitem name="equipment_request" id="equipment_request.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="equipment_request.menu_1" parent="equipment_request.menu_root"
+    action="equipment_request.action_window"/>
+
+
+    <!-- actions -->
+
+
+
+
+
+
+</odoo>

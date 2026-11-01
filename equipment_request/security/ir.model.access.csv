@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_groupuser,user.access,model_equipment_request,equipment_request.user_group,1,1,1,0
+access_groupmanager,manager.access,model_equipment_request,equipment_request.Manger_group,1,1,1,1
