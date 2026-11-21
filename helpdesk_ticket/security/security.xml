@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_advance_user" model="res.groups">
+        <field name="name">Expense Advance User</field>
+    </record>
+    <record id="group_advance_manager" model="res.groups">
+        <field name="name">Expense Advance Manager</field>
+    </record>
+    <record id="group_advance_finance" model="res.groups">
+        <field name="name">Expense Advance Finance</field>
+    </record>
+
+    <record id="mail_activity_can_del" model="res.groups">
+        <field name="name">Allow Delete</field>
+    </record>
+
+</odoo>

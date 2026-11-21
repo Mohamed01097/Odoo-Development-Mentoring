@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+ <record model="ir.ui.view" id="edit_sales.list">
+      <field name="name">Edit_sale_list</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+
+
+
+          <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="customer_note"/>
+                <field name="delivery_priority"/>
+               <field name="custom_discount"/>
+                <field name="discount_amount"/>
+                <field name="minimum_order_amount"/>
+          </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="Ahmed_essam"  string="Evalute_review"  type="object" class="oe_highlight"
+                groups="edit_sales.Sales_Order_Approver"/>
+          </xpath>
+
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="edit_sales.action_window">
+      <field name="name">Edit_sales window</field>
+      <field name="res_model">edit_sales.edit_sales</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="edit_sales.action_server">
+      <field name="name">Edit_sales server</field>
+      <field name="model_id" ref="model_edit_sales_edit_sales"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="Edit_sales" id="edit_sales.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="edit_sales.menu_1" parent="edit_sales.menu_root"/>
+    <menuitem name="Menu 2" id="edit_sales.menu_2" parent="edit_sales.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="edit_sales.menu_1_list" parent="edit_sales.menu_1"
+              action="edit_sales.action_window"/>
+    <menuitem name="Server to list" id="edit_sales" parent="edit_sales.menu_2"
+              action="edit_sales.action_server"/>
+-->
+  </data>
+</odoo>

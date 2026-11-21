@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+       <record id="Sales_Order_Approver" model="res.groups">
+
+         <field name="name">Sales Order Approver</field>
+       </record>
+
+ <record id="user_can_see_his_own_recordss" model="ir.rule">
+            <field name="name">edit user</field>
+            <field  name="model_id" ref="sale.model_sale_order"/>
+                       <field name="domain_force">[('state','=','sale')]</field>
+            <field name="groups"
+                   eval="[(4, ref('edit_sales.Sales_Order_Approver'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write"  eval="False"/>
+            <field name="perm_create"  eval="False"/>
+            <field name="perm_unlink"  eval="False"/>
+
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </data>
+
+
+
+
+
+</odoo>

@@ -11,6 +11,13 @@ class edit_sale(models.Model):
     training_review_limit = fields.Monetary(default='5000')
     training_needs_review = fields.Boolean(default=False ,readonly=True )
 
+   
+
+
+
+
+
+
     @api.depends('order_line.product_uom_qty', 'order_line.display_type','order_line.price_unit')
     def _compute_training_total_quantity(self):
         for record in self:
