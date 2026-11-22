@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_helpdesk_ticket,helpdesk_ticket,model_helpdesk_ticket,base.group_user,1,1,1,1
+
+access_expense_advance_wizard_manager,expense.advance.reject.wizard.manager,model_expense_advance_reject_wizard,helpdesk_ticket.group_advance_manager,1,1,1,0

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+    <record model="ir.module.category" id="helpdesk_expense_ticket">
+        <field name="name">Helpdesk Expense</field>
+        <field name="sequence">50</field>
+    </record>
+
+
+    <record model="res.groups.privilege" id="res_groups_privilege_helpdesk_ticket">
+        <field name="name">Helpdesk Expense</field>
+        <field name="sequence">9</field>
+        <field name="category_id" ref="helpdesk_ticket.helpdesk_expense_ticket"/>
+    </record>
+
+
+
+    <record id="group_advance_user" model="res.groups">
+        <field name="name">Expense Advance User</field>
+        <field name="privilege_id" ref="res_groups_privilege_helpdesk_ticket"/>
+    </record>
+
+    <record id="group_advance_manager" model="res.groups">
+        <field name="name">Expense Advance Manager</field>
+        <field name="privilege_id" ref="res_groups_privilege_helpdesk_ticket"/>
+        <field name="implied_ids" eval="[(4, ref('group_advance_user'))]"/>
+    </record>
+
+    <record id="group_advance_finance" model="res.groups">
+        <field name="name">Expense Advance Finance</field>
+        <field name="privilege_id" ref="res_groups_privilege_helpdesk_ticket"/>
+        <field name="implied_ids" eval="[(4, ref('group_advance_user'))]"/>
+    </record>
+
+
+    <record id="mail_activity_can_del" model="res.groups">
+        <field name="name">Allow Delete</field>
+        <field name="privilege_id" ref="res_groups_privilege_helpdesk_ticket"/>
+        <field name="implied_ids" eval="[(4, ref('group_advance_user'))]"/>
+    </record>
+
+
+</odoo>
