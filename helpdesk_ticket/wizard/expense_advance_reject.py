@@ -11,12 +11,10 @@ class ExpenseAdvanceRejectWizard(models.TransientModel):
 
     def action_confirm_reject(self):
         self.ensure_one()
-        advance = self.advance_id
-        # advance.check_access('write')
-        # advance._check_manager()
-        if not (self.reason or '').strip():
-            raise UserError(_('A rejection reason is required.'))
-        advance.write({'rejection_reason': self.reason.strip()})
+        active_id = self.env.context.get('active_id')
+        print("active id    ",active_id)
+        advance = self.env['helpdesk.ticket'].browse(active_id)
+        advance.write({'rejection_reason': self.reason})
         advance.state = 'rejected'
         # advance._set_state('rejected')
         # advance._close_review_activities()

@@ -40,7 +40,8 @@ class HelpdeskTicket(models.Model):
         finance_group =  self.env.ref('helpdesk_ticket.group_advance_finance')
         user_id = False
         for user in finance_group.user_ids:
-             user_id = user.id
+            if user.is_finance:
+                user_id = user.id
         for rec in self:
             rec.activity_schedule(
                 'mail.mail_activity_data_todo',
